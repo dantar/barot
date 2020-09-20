@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ScanCodesComponent } from './components/scan-codes/scan-codes.component';
+import { BarecodeScannerLivestreamModule } from 'ngx-barcode-scanner';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScanCodesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BarecodeScannerLivestreamModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
