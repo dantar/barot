@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GameCard, GameContext, GameEvent, GameEventClickCard, GameEventStart, GameRule, GameRuleIf, GameRuleStory, GameTriggerClick, GameTriggerStart } from '../models/game-models';
+import { GameCard, GameContext, GameEvent, GameEventClickCard, GameEventStart, GameRule, GameRuleIf, GameRuleStory, GameTriggerCard, GameTriggerStart } from '../models/game-models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class SharedDataService {
         new GameTriggerStart(), [new GameRuleStory(['The game has started.', 'Go scan some codes!'])]
       ),
       new GameRuleIf(
-        new GameTriggerClick('sword'), [new GameRuleStory(['Nice sword you have!'])]
+        new GameTriggerCard('sword'), [new GameRuleStory(['Nice sword you have!'])]
       ),
     ]);
     this.context.addCard(new GameCard('sword', 'A steel sword'));

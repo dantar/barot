@@ -115,8 +115,8 @@ export class GameTriggerStart extends GameTrigger {
     }
 }
 
-export class GameTriggerClick extends GameTrigger {
-    code = 'click';
+export class GameTriggerCard extends GameTrigger {
+    code = 'card';
     item: string;
     constructor (item: string) {
         super();
