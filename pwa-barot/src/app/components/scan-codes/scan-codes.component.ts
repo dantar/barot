@@ -9,6 +9,7 @@ import { BarecodeScannerLivestreamComponent } from 'ngx-barcode-scanner';
 export class ScanCodesComponent implements OnInit, AfterViewInit {
 
   codes: string[];
+  counts: {[code: string]: number}
 
   @ViewChild('barcodescanner') barcodescanner: BarecodeScannerLivestreamComponent;
 
@@ -20,13 +21,17 @@ export class ScanCodesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void { 
     this.codes = [];
+    this.counts = {};
   }
 
   oneMoreScan(result: any){
     console.log('scan', result);
     let code = result.codeResult.code;
-    if (!this.codes.includes(code)) {
+    if (this.codes.includes(code)) {
+      this.counts[code] = this.counts[code] +1;
+    } else {
       this.codes.push(code);
+      this.counts[code] = 1;
     }
   }
 
