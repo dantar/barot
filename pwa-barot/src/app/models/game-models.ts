@@ -1,55 +1,78 @@
+export class GameProgress {
+
+    story: string[];
+
+    constructor() {
+        this.story = [];
+    }
+
+}
+
 export class GameContext {
 
     rules: GameRule[];
     cards: GameCard[];
+    progress: GameProgress;
 
-    cardsIndex: {[id: string]: GameCard};
-
-    story: string[];
-  
-    constructor(rules: GameRule[]) {
-        this.rules = rules;
-        this.story = [];
-        this.cards = [];
-        this.cardsIndex = {};
+    constructor(context: GameContext) {
+        this.rules = context.rules;
+        this.cards = context.cards;
+        this.progress = new GameProgress();
     }
-  
-    start() {
+
+    static inflate(dto: any): GameContext {
+        return new GameContext(dto);
+    }
+
+    start?() {
         this.event(new GameEventStart());
     }
 
-    event(e: GameEvent) {
+    event?(e: GameEvent) {
         this.rules.forEach(r => {
-            r.digest(this, e);
+            GameRule.brains(r).digest(this, e);
         })
     }
 
-    addCard(card: GameCard) {
+    addCard?(card: GameCard) {
         this.cards.push(card);
-        this.cardsIndex[card.code] = card;
     }
 
 }
 
 export class GameCard {
-    barcode: string;
     code: string;
     name: string;
+    barcode: string;
     icon: string;
+
+    static brains(card: GameCard): GameCard {
+        return new GameCard(card.code, card.name);
+    }
+
     constructor(code, name) {
         this.code = code;
         this.icon = `assets/${code}.png`;
         this.barcode = this.eanEncode(code);
         this.name = name;
     }
-    eanEncode(code: any): string {
+    eanEncode?(code: any): string {
         return code;
     }
+
+}
+
+export class GameCardBarcoded {
+
 }
 
 export class GameRule {
     code: string;
-    digest(context: GameContext, event: GameEvent): void {};
+    static reg: {[code: string]: (r: GameRule) => GameRule} = {};
+    static brains(rule: GameRule): GameRule {
+        return this.reg[rule.code](rule);
+    }
+    digest?(context: GameContext, event: GameEvent): void {};
 }
 
 export class GameEvent {
@@ -72,36 +95,42 @@ export class GameRuleIf extends GameRule {
     code: 'if';
     trigger?: GameTrigger;
     rules?: GameRule[];
-    constructor(trigger: GameTrigger, rules: GameRule[]) {
+    constructor(rule: GameRuleIf) {
         super();
-        this.trigger = trigger;
-        this.rules = rules;
+        this.trigger = rule.trigger;
+        this.rules = rule.rules;
     }
-    digest(context: GameContext, event: GameEvent): void {
-        if (this.trigger.triggers(event)) {
-            this.rules.forEach(r => r.digest(context, event));
+    digest?(context: GameContext, event: GameEvent): void {
+        if (GameTrigger.inflate(this.trigger).triggers(event)) {
+            this.rules.forEach(r => GameRule.brains(r).digest(context, event));
         }
     };
 }
+GameRule.reg['if'] = (r: GameRule) => new GameRuleIf(r as GameRuleIf);
 
 export class GameRuleStory extends GameRule {
     code = 'story';
     story: string[];
-    constructor (story: string[]) {
+    constructor(rule: GameRuleStory) {
         super();
-        this.story = story;
+        this.story = rule.story;
     }
-    digest(context: GameContext, event: GameEvent): void {
+    digest?(context: GameContext, event: GameEvent): void {
         this.story.forEach(s => {
-            context.story.push(s);
+            context.progress.story.push(s);
         });
     };
 }
+GameRule.reg['story'] = (r: GameRule) => new GameRuleStory(r as GameRuleStory);
 
 export class GameTrigger {
     code: string;
-    triggers(event: GameEvent): boolean {
+    triggers?(event: GameEvent): boolean {
         return false;
+    }
+    static reg: {[code: string]: (r: GameTrigger) => GameTrigger} = {};
+    static inflate(trigger: GameTrigger): GameTrigger {
+        return this.reg[trigger.code](trigger);
     }
 }
 
@@ -110,19 +139,21 @@ export class GameTriggerStart extends GameTrigger {
     constructor () {
         super();
     }
-    triggers(event: GameEvent): boolean {
+    triggers?(event: GameEvent): boolean {
         return event.code === 'start';
     }
 }
+GameTrigger.reg['start'] = (r: GameTrigger) => new GameTriggerStart();
 
 export class GameTriggerCard extends GameTrigger {
     code = 'card';
-    item: string;
-    constructor (item: string) {
+    card: string;
+    constructor (card: GameTriggerCard) {
         super();
-        this.item = item;
+        this.card = card.card;
     }
-    triggers(event: GameEvent): boolean {
-        return event.code === 'card' && (event as GameEventClickCard).card == this.item;
+    triggers?(event: GameEvent): boolean {
+        return event.code === 'card' && (event as GameEventClickCard).card == this.card;
     }
 }
+GameTrigger.reg['card'] = (r: GameTrigger) => new GameTriggerCard(r as GameTriggerCard);
