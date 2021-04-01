@@ -25,7 +25,7 @@ export class ScanCodesComponent implements OnInit, AfterViewInit {
   }
 
   oneMoreScan(result: any){
-    console.log('scan', result);
+    console.log('scan', result.codeResult.code);
     let code = result.codeResult.code;
     if (this.codes.includes(code)) {
       this.counts[code] = this.counts[code] +1;
