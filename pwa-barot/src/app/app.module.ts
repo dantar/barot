@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScanCodesComponent } from './components/scan-codes/scan-codes.component';
 import { BarecodeScannerLivestreamModule } from 'ngx-barcode-scanner';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { BarecodeScannerLivestreamModule } from 'ngx-barcode-scanner';
     BrowserModule,
     AppRoutingModule,
     BarecodeScannerLivestreamModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
