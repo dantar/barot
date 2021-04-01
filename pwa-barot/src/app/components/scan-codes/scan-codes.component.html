@@ -1,5 +1,5 @@
 <div class="scancamera">
-    <barcode-scanner-livestream #barcodescanner type="ean" (valueChanges)="oneMoreScan($event)" (started)="onStarted"></barcode-scanner-livestream>
+    <barcode-scanner-livestream #barcodescanner type="ean" (valueChanges)="oneMoreScan($event)" (started)="onStarted($event)"></barcode-scanner-livestream>
 </div>
 <div class="scancamera">
     <div *ngFor="let code of codes">{{code}}: {{counts[code]}}</div>

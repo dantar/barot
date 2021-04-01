@@ -20,7 +20,7 @@ export class GameContext {
         this.progress = new GameProgress();
     }
 
-    static inflate(dto: any): GameContext {
+    static inflate(dto: GameContext): GameContext {
         return new GameContext(dto);
     }
 
@@ -92,7 +92,7 @@ export class GameEventClickCard {
 }
 
 export class GameRuleIf extends GameRule {
-    code: 'if';
+    code = 'if';
     trigger?: GameTrigger;
     rules?: GameRule[];
     constructor(rule: GameRuleIf) {

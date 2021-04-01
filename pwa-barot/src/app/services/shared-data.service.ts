@@ -13,16 +13,16 @@ export class SharedDataService {
     this.context = GameContext.inflate({
       rules: [
         {code: "if", trigger: {code: "start"}, rules: [
-          {code: "story", story: ['The game has started.', 'Go scan some codes!']},
-        ]},
-        {code: "if", trigger: {code: "card", card: 'sword'}, rules: [
-          {code: "story", story: ['Nice sword you have!']},
-        ]},
+          {code: "story", story: ['The game has started.', 'Go scan some codes!']} as GameRuleStory,
+        ]} as GameRuleIf,
+        {code: "if", trigger: {code: "card", card: 'sword'} as GameEventClickCard, rules: [
+          {code: "story", story: ['Nice sword you have!']} as GameRuleStory,
+        ]} as GameRuleIf,
       ],
       cards: [
-        {code: 'sword', name:'A steel sword'},
+        {code: 'sword', name: 'A steel sword', barcode: '8001120884541', icon: './assets/sword.png'},
       ],
-    });
+    } as GameContext);
     this.progress = {
       story: [],
     }
