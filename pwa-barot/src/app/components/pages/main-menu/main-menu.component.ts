@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
@@ -8,10 +9,15 @@ import { SharedDataService } from 'src/app/services/shared-data.service';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(public shared: SharedDataService) { 
+  constructor(public shared: SharedDataService,
+    private router: Router) { 
   }
 
   ngOnInit(): void {
+  }
+
+  clickQrCode() {
+    this.router.navigate(['qrcode']);
   }
 
 }

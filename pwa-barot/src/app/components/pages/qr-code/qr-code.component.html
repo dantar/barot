@@ -1,0 +1,5 @@
+<p>qr-code works! {{code}}</p>
+
+<div *ngFor="let device of devices" (click)="startCamera(device)">start {{device.label}}</div>
+
+<div id="reader"></div>
