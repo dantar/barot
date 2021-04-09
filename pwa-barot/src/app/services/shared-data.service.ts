@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GameCard, GameContext, GameEvent, GameEventClickCard, GameEventStart, GameProgress, GameRule, GameRuleIf, GameRuleStory, GameTriggerCard, GameTriggerStart } from '../models/game-models';
+import { GameCard, GameContext, GameEvent, GameEventClickCard, GameEventStart, GameGui, GameProgress, GameRule, GameRuleIf, GameRuleStory, GameTriggerCard, GameTriggerStart } from '../models/game-models';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ export class SharedDataService {
 
   context: GameContext;
   progress: GameProgress;
+  gui: GameGui;
 
   constructor() {
     this.context = GameContext.inflate({
@@ -26,19 +27,22 @@ export class SharedDataService {
     this.progress = {
       story: [],
     }
+    this.gui = {page: 'mainmenu'};
   }
 
   startGame() {
-    this.context.start();
+    GameContext.start(this);
   }
 
   runEvent(event: GameEvent) {
-    this.context.event(event);
+    GameContext.event(this, event);
   }
 
   clickCard(card: GameCard) {
     this.runEvent(new GameEventClickCard(card.code));
     console.log('clickCard(card: GameCard)', card);
   }
+
+
 
 }

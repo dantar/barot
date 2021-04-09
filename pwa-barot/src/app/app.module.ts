@@ -7,11 +7,13 @@ import { ScanCodesComponent } from './components/scan-codes/scan-codes.component
 import { BarecodeScannerLivestreamModule } from 'ngx-barcode-scanner';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScanCodesComponent
+    ScanCodesComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

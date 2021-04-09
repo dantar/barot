@@ -1,3 +1,9 @@
+import { SharedDataService } from "../services/shared-data.service";
+
+export class GameGui {
+    page: string;
+}
+
 export class GameProgress {
 
     story: string[];
@@ -12,30 +18,28 @@ export class GameContext {
 
     rules: GameRule[];
     cards: GameCard[];
-    progress: GameProgress;
 
     constructor(context: GameContext) {
         this.rules = context.rules;
         this.cards = context.cards;
-        this.progress = new GameProgress();
     }
 
     static inflate(dto: GameContext): GameContext {
         return new GameContext(dto);
     }
 
-    start?() {
-        this.event(new GameEventStart());
+    static start(shared: SharedDataService) {
+        GameContext.event(shared, new GameEventStart());
     }
 
-    event?(e: GameEvent) {
-        this.rules.forEach(r => {
-            GameRule.brains(r).digest(this, e);
+    static event(shared: SharedDataService, e: GameEvent) {
+        shared.context.rules.forEach(r => {
+            GameRule.brains(r).digest(shared, e);
         })
     }
 
-    addCard?(card: GameCard) {
-        this.cards.push(card);
+    static addCard(shared: SharedDataService, card: GameCard) {
+        shared.context.cards.push(card);
     }
 
 }
@@ -72,7 +76,7 @@ export class GameRule {
     static brains(rule: GameRule): GameRule {
         return this.reg[rule.code](rule);
     }
-    digest?(context: GameContext, event: GameEvent): void {};
+    digest?(shared: SharedDataService, event: GameEvent): void {};
 }
 
 export class GameEvent {
@@ -100,9 +104,9 @@ export class GameRuleIf extends GameRule {
         this.trigger = rule.trigger;
         this.rules = rule.rules;
     }
-    digest?(context: GameContext, event: GameEvent): void {
+    digest?(shared: SharedDataService, event: GameEvent): void {
         if (GameTrigger.inflate(this.trigger).triggers(event)) {
-            this.rules.forEach(r => GameRule.brains(r).digest(context, event));
+            this.rules.forEach(r => GameRule.brains(r).digest(shared, event));
         }
     };
 }
@@ -115,9 +119,9 @@ export class GameRuleStory extends GameRule {
         super();
         this.story = rule.story;
     }
-    digest?(context: GameContext, event: GameEvent): void {
+    digest?(shared: SharedDataService, event: GameEvent): void {
         this.story.forEach(s => {
-            context.progress.story.push(s);
+            shared.progress.story.push(s);
         });
     };
 }

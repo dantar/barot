@@ -1,12 +1,7 @@
 <div *ngIf="shared">
-  <div *ngFor="let m of shared.context.progress.story">{{m}}</div>
-</div>
-
-<div *ngIf="shared">
   <div *ngFor="let card of shared.context.cards" (click)="shared.clickCard(card)">
     {{card.name}} ({{card.code}})
   </div>
 </div>
-
 
 <router-outlet></router-outlet>
