@@ -1,4 +1,4 @@
-<div *ngIf="shared">
+<div *ngIf="shared && false">
   <div *ngFor="let card of shared.context.cards" (click)="shared.clickCard(card)">
     {{card.name}} ({{card.code}})
   </div>

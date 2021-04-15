@@ -1,0 +1,13 @@
+<div [@mediaitem]="state" (click)="logMe($event)" class="audio-slider">
+    <audio controls autoplay (ended)="ended.emit($event)">
+        <source [src]="track.link">
+        Il tuo browser non supporta gli audio.
+    </audio>
+</div>
+<div class="panel-menu-list bottom-left-menu">
+    <div class="panel-menu-item audio-box">
+        <svg viewBox="0 0 100 100" (click)="clickAudio()">
+            <g app-audio-toggle></g>
+        </svg>
+    </div>
+</div>

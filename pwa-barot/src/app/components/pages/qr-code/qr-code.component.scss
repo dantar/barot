@@ -1,0 +1,26 @@
+.qrscan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    div {
+        width: 80%;
+    }
+}
+
+.codes {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    span {
+        color:white;
+        font-weight: 800;
+    }
+}

@@ -10,13 +10,21 @@ import { environment } from '../environments/environment';
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { QrCodeComponent } from './components/pages/qr-code/qr-code.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ListenTrackComponent } from './components/views/listen-track/listen-track.component';
+import { WatchVideoComponent } from './components/views/watch-video/watch-video.component';
+import { FxFadeinoutComponent } from './components/fx/fx-fadeinout/fx-fadeinout.component';
+import { FxSpinningComponent } from './components/fx/fx-spinning/fx-spinning.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScanCodesComponent,
     MainMenuComponent,
-    QrCodeComponent
+    QrCodeComponent,
+    ListenTrackComponent,
+    WatchVideoComponent,
+    FxFadeinoutComponent,
+    FxSpinningComponent
   ],
   imports: [
     BrowserModule,
