@@ -14,6 +14,7 @@ import { ListenTrackComponent } from './components/views/listen-track/listen-tra
 import { WatchVideoComponent } from './components/views/watch-video/watch-video.component';
 import { FxFadeinoutComponent } from './components/fx/fx-fadeinout/fx-fadeinout.component';
 import { FxSpinningComponent } from './components/fx/fx-spinning/fx-spinning.component';
+import { NavMapComponent } from './components/pages/nav-map/nav-map.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FxSpinningComponent } from './components/fx/fx-spinning/fx-spinning.com
     ListenTrackComponent,
     WatchVideoComponent,
     FxFadeinoutComponent,
-    FxSpinningComponent
+    FxSpinningComponent,
+    NavMapComponent
   ],
   imports: [
     BrowserModule,

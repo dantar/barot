@@ -1,0 +1,9 @@
+<p>nav-map works!</p>
+
+<div *ngIf="position">
+    <a target="_" href="https://www.google.com/maps/search/?api=1&query={{position.coords.latitude}},{{position.coords.longitude}}">{{position.coords.latitude}} {{position.coords.longitude}}</a>
+</div>
+
+<div *ngIf="!position">
+    No position available
+</div>
