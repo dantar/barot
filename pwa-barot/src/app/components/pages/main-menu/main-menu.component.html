@@ -1,9 +1,10 @@
-<div (click)="clickQrCode()">Gioca</div>
+<div (click)="clickQrCode()">QR Code</div>
+<div (click)="clickNavMap()">Mappa</div>
 
-<div *ngIf="shared.progress">
+<div *ngIf="shared.progress && false">
     Game progress!
 </div>
-<div *ngIf="shared.progress">
+<div *ngIf="shared.progress && false">
   <div *ngFor="let m of shared.progress.story">{{m}}</div>
 </div>
 

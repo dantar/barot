@@ -20,4 +20,8 @@ export class MainMenuComponent implements OnInit {
     this.router.navigate(['qrcode']);
   }
 
+  clickNavMap() {
+    this.router.navigate(['nav']);
+  }
+
 }
