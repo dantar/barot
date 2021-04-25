@@ -5,13 +5,23 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    id="svg821"
    version="1.1"
    viewBox="0 0 100 100"
    height="100"
    width="100">
   <defs
-     id="defs815" />
+     id="defs815">
+    <clipPath
+       id="clipPath889"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path891"
+         d="m -1.5152288,16.662415 -8.0812203,-0.505076 -0.8838839,-3.661803 0.8838839,-2.6516503 -8.7125659,2.0203053 -5.555839,-4.0406102 -2.525382,-8.08122026 0.12627,-6.81852964 7.828683,-6.5659919 5.934645,-5.3033 13.00571427,0.378807 7.07106783,-0.757614 4.7982249,2.146574 0.808561,3.370743 3.105779,1.806288 6.81853,4.4194176 3.030458,8.20748942 -1.515229,4.67195548 -2.584537,0.1707136 -0.445921,3.4910891 -10.606601,3.1567268 -7.323606,4.166879 -0.1262691,3.661803 -4.5456865,0.378808 z"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </clipPath>
+  </defs>
   <metadata
      id="metadata818">
     <rdf:RDF>
@@ -82,5 +92,22 @@
        d="M 8.420691,76.348347 C 8.1140941,76.654944 -7.1555373,70.970791 -7.5837925,71.03862 c -0.4282552,0.06783 -13.1940375,10.192355 -13.5803725,9.995508 -0.386334,-0.196847 0.301041,-16.47563 0.104193,-16.861964 -0.196847,-0.386335 -13.770687,-9.398665 -13.702858,-9.82692 0.06783,-0.428255 15.762281,-4.804943 16.068878,-5.11154 0.306597,-0.306597 4.683285,-16.001049 5.11154,-16.068878 0.428255,-0.06783 9.4405851,13.506011 9.8269197,13.702859 0.3863346,0.196847 16.6651163,-0.490528 16.8619643,-0.104194 0.196847,0.386335 -9.9276791,13.152118 -9.9955081,13.580373 -0.067829,0.428255 5.6163239,15.697886 5.3097271,16.004483 z"
        id="path834"
        style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <image
+       clip-path="url(#clipPath889)"
+       width="53.473"
+       height="40"
+       preserveAspectRatio="none"
+       xlink:href="file:///home/daniele/hack/git/barot/pwa-barot/src/assets/tree.png"
+       id="image849"
+       x="-27"
+       y="-20" />
+    <use
+       height="100%"
+       width="100%"
+       transform="translate(-2.3991123,36.61803)"
+       id="use929"
+       xlink:href="#image849"
+       y="0"
+       x="0" />
   </g>
 </svg>

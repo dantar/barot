@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="100"
@@ -17,7 +18,18 @@
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="barot.svg">
   <defs
-     id="defs815" />
+     id="defs815">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath889">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -1.5152288,16.662415 -8.0812203,-0.505076 -0.8838839,-3.661803 0.8838839,-2.6516503 -8.7125659,2.0203053 -5.555839,-4.0406102 -2.525382,-8.08122026 0.12627,-6.81852964 7.828683,-6.5659919 5.934645,-5.3033 13.00571427,0.378807 7.07106783,-0.757614 4.7982249,2.146574 0.808561,3.370743 3.105779,1.806288 6.81853,4.4194176 3.030458,8.20748942 -1.515229,4.67195548 -2.584537,0.1707136 -0.445921,3.4910891 -10.606601,3.1567268 -7.323606,4.166879 -0.1262691,3.661803 -4.5456865,0.378808 z"
+         id="path891"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccccccccccccccccccccc" />
+    </clipPath>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="144.61123"
-     inkscape:cy="45.854608"
+     inkscape:zoom="7.919596"
+     inkscape:cx="30.919361"
+     inkscape:cy="88.283075"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -142,5 +154,23 @@
        inkscape:transform-center-x="1.2824199"
        inkscape:transform-center-y="-2.3990352"
        transform="rotate(60,36.257063,75.636414)" />
+    <image
+       sodipodi:absref="/home/daniele/hack/git/barot/pwa-barot/src/assets/tree.png"
+       y="-20"
+       x="-27"
+       id="image849"
+       xlink:href="file:///home/daniele/hack/git/barot/pwa-barot/src/assets/tree.png"
+       preserveAspectRatio="none"
+       height="40"
+       width="53.473"
+       clip-path="url(#clipPath889)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#image849"
+       id="use929"
+       transform="translate(-2.3991123,36.61803)"
+       width="100%"
+       height="100%" />
   </g>
 </svg>

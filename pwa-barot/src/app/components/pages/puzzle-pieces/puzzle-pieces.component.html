@@ -1,18 +1,31 @@
 <svg class="fullsvg" viewBox="0 0 100 100" (pan)="onPan($event)">
 
+    <defs>
+        <g id="aTree">
+            <clipPath id="clipPath889" clipPathUnits="userSpaceOnUse">
+                <path id="path891"
+                    d="m -1.5152288,16.662415 -8.0812203,-0.505076 -0.8838839,-3.661803 0.8838839,-2.6516503 -8.7125659,2.0203053 -5.555839,-4.0406102 -2.525382,-8.08122026 0.12627,-6.81852964 7.828683,-6.5659919 5.934645,-5.3033 13.00571427,0.378807 7.07106783,-0.757614 4.7982249,2.146574 0.808561,3.370743 3.105779,1.806288 6.81853,4.4194176 3.030458,8.20748942 -1.515229,4.67195548 -2.584537,0.1707136 -0.445921,3.4910891 -10.606601,3.1567268 -7.323606,4.166879 -0.1262691,3.661803 -4.5456865,0.378808 z"
+                    style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+            </clipPath>
+            <image width="53.473" height="40" preserveAspectRatio="none" clip-path="url(#clipPath889)"
+                xlink:href="./assets/tree.png" id="image849" x="-27" y="-20" />
+        </g>
+    </defs>
+
     <g [style]="transformItem('itemA')" id="itemA">
         <circle (click)="clickItem($event)" r="20" cy="0" cx="0"
             style="opacity:1;vector-effect:none;fill:#00aad4;fill-opacity:1;stroke:#ffffff;stroke-width:0.29339254;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
 
-    <g [style]="transformItem('itemB')">
-        <circle (click)="clickItem($event)" r="20" cy="0" cx="0" id="itemB"
+    <g [style]="transformItem('itemB')" id="itemB">
+        <circle (click)="clickItem($event)" r="20" cy="0" cx="0"
             style="opacity:1;vector-effect:none;fill:#aaffaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.29339254;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
     </g>
 
-    <g [style]="transformItem('itemC')">
-        <circle (click)="clickItem($event)" r="20" cy="0" cx="0" id="itemC"
-            style="opacity:1;vector-effect:none;fill:#fff947;fill-opacity:1;stroke:#ffffff;stroke-width:0.29339254;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <g [style]="transformItem('itemC')" id="itemC">
+        <use href="#aTree" x="0" y="0"></use>
     </g>
+
+
 
 </svg>
