@@ -27,16 +27,18 @@ export class PuzzlePiecesComponent implements OnInit {
   }
 
   onPan(event:any) {
-    let id = event.target.id;
-    let path: Element[] = event.srcEvent.path;
-    path.forEach(e => {
+    let e: Element = event.target;
+    while (e) {
       if (e.id && this.items[e.id]) {
         let item = this.items[e.id];
         let c: Coordinates = this.panEventCoordinates(event);
         item.dx = c.x;
         item.dy = c.y;
+        e = null;
+      } else {
+        e = e.parentElement;
       }
-    })
+    }
   }
 
   transformItem(id: string) {
