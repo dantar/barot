@@ -16,12 +16,8 @@ export class MainMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clickQrCode() {
-    this.router.navigate(['qrcode']);
-  }
-
-  clickNavMap() {
-    this.router.navigate(['nav']);
+  navTo(page: string) {
+    this.router.navigate([page]);
   }
 
 }

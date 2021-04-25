@@ -1,5 +1,6 @@
-<div (click)="clickQrCode()">QR Code</div>
-<div (click)="clickNavMap()">Mappa</div>
+<div (click)="navTo('qrcode')">QR Code</div>
+<div (click)="navTo('nav')">Mappa</div>
+<div (click)="navTo('puzzle')">Puzzle</div>
 
 <div *ngIf="shared.progress && false">
     Game progress!

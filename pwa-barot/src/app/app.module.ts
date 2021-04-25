@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,14 @@ import { WatchVideoComponent } from './components/views/watch-video/watch-video.
 import { FxFadeinoutComponent } from './components/fx/fx-fadeinout/fx-fadeinout.component';
 import { FxSpinningComponent } from './components/fx/fx-spinning/fx-spinning.component';
 import { NavMapComponent } from './components/pages/nav-map/nav-map.component';
+import { PuzzlePiecesComponent } from './components/pages/puzzle-pieces/puzzle-pieces.component';
+
+import * as Hammer from 'hammerjs';
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 
 @NgModule({
   declarations: [
@@ -26,16 +34,19 @@ import { NavMapComponent } from './components/pages/nav-map/nav-map.component';
     WatchVideoComponent,
     FxFadeinoutComponent,
     FxSpinningComponent,
-    NavMapComponent
+    NavMapComponent,
+    PuzzlePiecesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BarecodeScannerLivestreamModule,
+    HammerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig },
   ],
   bootstrap: [AppComponent]
 })

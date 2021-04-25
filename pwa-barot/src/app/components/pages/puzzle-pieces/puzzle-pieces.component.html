@@ -1,0 +1,18 @@
+<svg class="fullsvg" viewBox="0 0 100 100" (pan)="onPan($event)">
+
+    <g [style]="transformItem('itemA')">
+        <circle (click)="clickItem($event)" r="20" cy="0" cx="0" id="itemA"
+            style="opacity:1;vector-effect:none;fill:#00aad4;fill-opacity:1;stroke:#ffffff;stroke-width:0.29339254;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+
+    <g [style]="transformItem('itemB')">
+        <circle (click)="clickItem($event)" r="20" cy="0" cx="0" id="itemB"
+            style="opacity:1;vector-effect:none;fill:#aaffaa;fill-opacity:1;stroke:#ffffff;stroke-width:0.29339254;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+
+    <g [style]="transformItem('itemC')">
+        <circle (click)="clickItem($event)" r="20" cy="0" cx="0" id="itemC"
+            style="opacity:1;vector-effect:none;fill:#fff947;fill-opacity:1;stroke:#ffffff;stroke-width:0.29339254;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+
+</svg>
