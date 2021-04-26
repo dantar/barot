@@ -8,3 +8,18 @@
     width:100%;
     overflow: hidden;
 }
+
+.ol-attribution {
+    display: none;
+}
+.ol-control {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .ol-control {
+        display: unset;
+    }
+
+}

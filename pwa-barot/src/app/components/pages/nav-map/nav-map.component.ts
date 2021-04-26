@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
-import VectorLayer from 'ol/layer/Vector';
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
+import VectorLayer from 'ol/layer/Vector' ;
+import VectorSource from 'ol/source/Vector' ;
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 import OSM from 'ol/source/OSM';
@@ -45,6 +48,16 @@ export class NavMapComponent implements OnInit {
         zoom: 13
       })
     });
+    let layer = new VectorLayer({
+      source: new VectorSource({
+        features: [
+          new Feature({
+            geometry: new Point(olProj.fromLonLat([this.position.coords.longitude, this.position.coords.latitude]))
+          })
+        ]
+      })
+    });
+    this.map.addLayer(layer);
   }
 
 }
