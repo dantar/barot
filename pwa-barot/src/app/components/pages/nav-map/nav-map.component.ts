@@ -55,7 +55,13 @@ export class NavMapComponent implements OnInit {
             geometry: new Point(olProj.fromLonLat([this.position.coords.longitude, this.position.coords.latitude]))
           })
         ]
-      })
+      }),
+      style: new Style({
+        image: new Icon({
+          anchor: [0.5, 1],
+          src: './assets/map/pin-orange.png',
+        })
+      }),
     });
     this.map.addLayer(layer);
   }
